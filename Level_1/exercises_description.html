@@ -12,33 +12,263 @@
 	</h1>
 	<h2>first_word.c</h2>
 	<p>
-		Assignment name  : first_word
-		Expected files   : first_word.c
-		Allowed functions: write
-		--------------------------------------------------------------------------------
-
+		Assignment name  : first_word <br>
+		Expected files   : first_word.c<br>
+		Allowed functions: write<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
 		Write a program that takes a string and displays its first word, followed by a
-		newline.
-
+		newline.<br>
+		<br>
 		A word is a section of string delimited by spaces/tabs or by the start/end of
-		the string.
-
+		the string.<br>
+		<br>
 		If the number of parameters is not 1, or if there are no words, simply display
-		a newline.
-
-		Examples:
-
-		$> ./first_word "FOR PONY" | cat -e
-		FOR$
-		$> ./first_word "this        ...    is sparta, then again, maybe    not" | cat -e
-		this$
-		$> ./first_word "   " | cat -e
-		$
-		$> ./first_word "a" "b" | cat -e
-		$
-		$> ./first_word "  lorem,ipsum  " | cat -e
-		lorem,ipsum$
-		$>
+		a newline.<br>
+		<br>
+		Examples:<br>
+		<br>
+		$> ./first_word "FOR PONY" | cat -e<br>
+		FOR$<br>
+		$> ./first_word "this        ...    is sparta, then again, maybe    not" | cat -e<br>
+		this$<br>
+		$> ./first_word "   " | cat -e<br>
+		$<br>
+		$> ./first_word "a" "b" | cat -e<br>
+		$<br>
+		$> ./first_word "  lorem,ipsum  " | cat -e<br>
+		lorem,ipsum$<br>
+		$><br>
 	</p>
+	<h2>fizzbuzz</h2>
+	<p> Assignment name  : fizzbuzz<br>
+		Expected files   : fizzbuzz.c<br>
+		Allowed functions: write<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a program that prints the numbers from 1 to 100, each separated by a
+		newline.<br>
+		<br>
+		If the number is a multiple of 3, it prints 'fizz' instead.<br>
+		<br>
+		If the number is a multiple of 5, it prints 'buzz' instead.<br>
+		<br>
+		If the number is both a multiple of 3 and a multiple of 5, it prints 'fizzbuzz' instead.</p>
+
+	<h2>ft_pustr</h2>
+	<p> Assignment name  : ft_putstr<br>
+		Expected files   : ft_putstr.c<br>
+		Allowed functions: write<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a function that displays a string on the standard output.<br>
+		<br>
+		The pointer passed to the function contains the address of the string's first
+		character.<br>
+		<br>
+		Your function must be declared as follows:<br>
+		<br>
+		void	ft_putstr(char *str);</p>
+
+	<h2>ft_strcpy</h2>
+	<p> Assignment name  : ft_strcpy<br>
+		Expected files   : ft_strcpy.c<br>
+		Allowed functions:<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Reproduce the behavior of the function strcpy (man strcpy).<br>
+		<br>
+		Your function must be declared as follows:<br>
+		<br>
+		char    *ft_strcpy(char *s1, char *s2);</p>
+
+	<h2>ft_strlen</h2>
+	<p> Assignment name  : ft_strlen<br>
+		Expected files   : ft_strlen.c<br>
+		Allowed functions:<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a function that returns the length of a string.<br>
+		<br>
+		Your function must be declared as follows:<br>
+		<br>
+		int	ft_strlen(char *str);</p>
+
+	<h2>ft_swap</h2>
+	<p> Assignment name  : ft_swap<br>
+		Expected files   : ft_swap.c<br>
+		Allowed functions:<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a function that swaps the contents of two integers the adresses of which
+		are passed as parameters.<br>
+		<br>
+		Your function must be declared as follows:<br>
+		<br>
+		void	ft_swap(int *a, int *b);</p>
+
+	<h2>repeat_alpha</h2>
+	<p> Assignment name  : repeat_alpha<br>
+		Expected files   : repeat_alpha.c<br>
+		Allowed functions: write<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a program called repeat_alpha that takes a string and display it
+		repeating each alphabetical character as many times as its alphabetical index,
+		followed by a newline.<br>
+		<br>
+		'a' becomes 'a', 'b' becomes 'bb', 'e' becomes 'eeeee', etc...<br>
+		<br>
+		Case remains unchanged.<br>
+		<br>
+		If the number of arguments is not 1, alphabhet_indexust display a newline.<br>
+		<br>
+		Examples:<br>
+		<br>
+		$>./repeat_alpha "abc"<br>
+		abbccc<br>
+		$>./repeat_alpha "Alex." | cat -e<br>
+		Alllllllllllleeeeexxxxxxxxxxxxxxxxxxxxxxxx.$<br>
+		$>./repeat_alpha 'abacadaba 42!' | cat -e<br>
+		abbacccaddddabba 42!$<br>
+		$>./repeat_alpha | cat -e<br>
+		$<br>
+		$><br>
+		$>./repeat_alpha "" | cat -e<br>
+		$<br>
+		$></p>
+
+	<h2>rev_print</h2>
+	<p> Assignment name  : rev_print<br>
+		Expected files   : rev_print.c<br>
+		Allowed functions: write<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a program that takes a string, and displays the string in reverse
+		followed by a newline.<br>
+		<br>
+		If the number of parameters is not 1, the program displays a newline.<br>
+		<br>
+		Examples:<br>
+		<br>
+		$> ./rev_print "zaz" | cat -e<br>
+		zaz$<br>
+		$> ./rev_print "dub0 a POIL" | cat -e<br>
+		LIOP a 0bud$<br>
+		$> ./rev_print | cat -e<br>
+		$</p>
+
+	<h1>rot_13</h1>
+	<p> Assignment name  : rot_13<br>
+		Expected files   : rot_13.c<br>
+		Allowed functions: write<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a program that takes a string and displays it, replacing each of its
+		letters by the letter 13 spaces ahead in alphabetical order.<br>
+		<br>
+		'z' becomes 'm' and 'Z' becomes 'M'. Case remains unaffected.<br>
+		<br>
+		The output will be followed by a newline.<br>
+		<br>
+		If the number of arguments is not 1, the program displays a newline.<br>
+		<br>
+		Example:<br>
+		<br>
+		$>./rot_13 "abc"<br>
+		nop<br>
+		$>./rot_13 "My horse is Amazing." | cat -e<br>
+		Zl ubefr vf Nznmvat.$<br>
+		$>./rot_13 "AkjhZ zLKIJz , 23y " | cat -e<br>
+		NxwuM mYXVWm , 23l $<br>
+		$>./rot_13 | cat -e<br>
+		$<br>
+		$><br>
+		$>./rot_13 "" | cat -e<br>
+		$<br>
+		$></p>
+
+	<h2>rotone</h2>
+	<p> Assignment name  : rotone<br>
+		Expected files   : rotone.c<br>
+		Allowed functions: write<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a program that takes a string and displays it, replacing each of its
+		letters by the next one in alphabetical order.<br>
+		<br>
+		'z' becomes 'a' and 'Z' becomes 'A'. Case remains unaffected.<br>
+		<br>
+		The output will be followed by a \n.<br>
+		<br>
+		If the number of arguments is not 1, the program displays \n.<br>
+		<br>
+		Example:<br>
+		<br>
+		$>./rotone "abc"<br>
+		bcd<br>
+		$>./rotone "Les stagiaires du staff ne sentent pas toujours tres bon." | cat -e<br>
+		Mft tubhjbjsft ev tubgg of tfoufou qbt upvkpvst usft cpo.$<br>
+		$>./rotone "AkjhZ zLKIJz , 23y " | cat -e<br>
+		BlkiA aMLJKa , 23z $<br>
+		$>./rotone | cat -e<br>
+		$<br>
+		$><br>
+		$>./rotone "" | cat -e<br>
+		$<br>
+		$></p>
+
+	<h2>search_remplace</h2>
+	<p> Assignment name  : search_and_replace<br>
+		Expected files   : search_and_replace.c<br>
+		Allowed functions: write, exit<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a program called search_and_replace that takes 3 arguments, the first
+		arguments is a string in which to replace a letter (2nd argument) by
+		another one (3rd argument).<br>
+		<br>
+		If the number of arguments is not 3, just display a newline.<br>
+		<br>
+		If the second argument is not contained in the first one (the string)
+		then the program simply rewrites the string followed by a newline.<br>
+		<br>
+		Examples:<br>
+		$>./search_and_replace "Papache est un sabre" "a" "o"<br>
+		Popoche est un sobre<br>
+		$>./search_and_replace "zaz" "art" "zul" | cat -e<br>
+		$<br>
+		$>./search_and_replace "zaz" "r" "u" | cat -e<br>
+		zaz$<br>
+		$>./search_and_replace "jacob" "a" "b" "c" "e" | cat -e<br>
+		$<br>
+		$>./search_and_replace "ZoZ eT Dovid oiME le METol." "o" "a" | cat -e<br>
+		ZaZ eT David aiME le METal.$<br>
+		$>./search_and_replace "wNcOre Un ExEmPle Pas Facilw a Ecrirw " "w" "e" | cat -e<br>
+		eNcOre Un ExEmPle Pas Facile a Ecrire $</p>
+
+	<h2>ulstr.c</h2>
+	<p> Assignment name  : ulstr<br>
+		Expected files   : ulstr.c<br>
+		Allowed functions: write<br>
+		--------------------------------------------------------------------------------<br>
+		<br>
+		Write a program that takes a string and reverses the case of all its letters.
+		Other characters remain unchanged.<br>
+		<br>
+		You must display the result followed by a '\n'.<br>
+		<br>
+		If the number of arguments is not 1, the program displays '\n'.<br>
+		<br>
+		Examples :<br>
+		<br>
+		$>./ulstr "L'eSPrit nE peUt plUs pRogResSer s'Il staGne et sI peRsIsTent VAnIte et auto-justification." | cat -e<br>
+		l'EspRIT Ne PEuT PLuS PrOGrESsER S'iL STAgNE ET Si PErSiStENT vaNiTE ET AUTO-JUSTIFICATION.$<br>
+		$>./ulstr "S'enTOuRer dE sECreT eSt uN sIGnE De mAnQuE De coNNaiSSanCe.  " | cat -e<br>
+		s'ENtoUrER De SecREt EsT Un SigNe dE MaNqUe dE COnnAIssANcE.  $<br>
+		$>./ulstr "3:21 Ba  tOut  moUn ki Ka di KE m'en Ka fe fot" | cat -e<br>
+		3:21 bA  ToUT  MOuN KI kA DI ke M'EN kA FE FOT$<br>
+		$>./ulstr | cat -e<br>
+		$</p>
 </body>
 </html>
