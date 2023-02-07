@@ -29,21 +29,5 @@ static int	ft_isuppercase(int c)
 
 int main(int argc, char **argv)
 {
-	int i;
-	int j;
-
-	i = 0;
-	j = i - 1;
-	if(argc == 2)
-	{
-		while(argv[1][i])
-		{
-			if(argv[1][i] == ft_isuppercase)
-			{
-				
-			}
-		i++;
-		j++;
-		}
-	}
+	
 }
