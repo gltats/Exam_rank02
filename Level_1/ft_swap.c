@@ -11,13 +11,24 @@ Your function must be declared as follows:
 
 void	ft_swap(int *a, int *b);*/
 
+#include <stdio.h>
+
 void	ft_swap(int *a, int *b)
 {
-	int temp;
+    int temp;
 
-	temp = a;
-	a = b;
-	b = temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
-	return(0);
+int main(void)
+{
+    int a = 1;
+    int b = 2;
+
+    printf("Before change a = %i, b = %i\n", a, b);
+    ft_swap(&a, &b);
+    printf("After change a = %i, b = %i\n", a, b);
+    return 0;
 }
