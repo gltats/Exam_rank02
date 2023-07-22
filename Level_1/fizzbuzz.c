@@ -11,44 +11,54 @@ If the number is a multiple of 3, it prints 'fizz' instead.
 If the number is a multiple of 5, it prints 'buzz' instead.
 
 If the number is both a multiple of 3 and a multiple of 5, it prints 'fizzbuzz' instead.*/
+
+
 #include <unistd.h>
 
-void ft_putnbr(int nb)
+void ft_putchar(char c)
 {
-	if (nb >= 0 && nb <= 9)
-	{
-		nb = nb + '0';
-		write(1, &nb, 1);
-	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+	write(1, &c, 1);
 }
 
-int ft_fizzbuzz(int nb)
+
+int ft_putnumb(int n)
 {
-	nb = 1;
-	while(nb <= 100)
+	if (n > 0 && n <= 9)
+		ft_putchar(n + '0');
+	if (n > 9)
 	{
-	if (nb % 15 == 0)
-		write(1, "fizzbuzz", 8);
-	else if (nb % 3 == 0)
-		write(1, "fizz", 4);
-	else if (nb % 5 == 0)
-		write(1, "buzz", 4);
-	else
-		ft_putnbr(nb);
-	nb++;
-	write (1, "\n", 1);
+		ft_putnumb(n / 10);
+		ft_putnumb(n % 10);
 	}
-	return(nb);
+	return(n);
+}
+
+void	ft_putstr(char *str)
+{
+	int i = 0;
+
+	while(str[i])
+	{
+		ft_putchar(str[i]);
+		i++; 
+	}
 }
 
 int main(void)
 {
-	int nb;
-	ft_fizzbuzz(nb);
+	int nb = 0;
+	while(nb <= 100)
+	{
+		if(nb % 15 == 0)
+			ft_putstr("fizzbuzz");
+		else if(nb % 5 == 0)
+			ft_putstr("buzz");
+		else if(nb % 3 == 0)
+			ft_putstr("fizz");
+		else
+			ft_putnumb(nb);
+		ft_putchar('\n');
+		nb++;
+	}
 	return(0);
 }

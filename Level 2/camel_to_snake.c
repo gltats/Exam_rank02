@@ -20,14 +20,3 @@ hello_world$
 $>./camel_to_snake | cat -e
 $*/
 
-static int	ft_isuppercase(int c)
-{
-	if (c >= 97 && c <= 122)
-		return (1);
-	return (0);
-}
-
-int main(int argc, char **argv)
-{
-	
-}

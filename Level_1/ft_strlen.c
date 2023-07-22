@@ -9,12 +9,21 @@ Your function must be declared as follows:
 
 int	ft_strlen(char *str);*/
 
+#include <stdio.h>
+
 int	ft_strlen(char *str)
 {
-	int counter;
+    int i = 0;
+    while(str[i])
+    {
+        i++;
+    }
+    return(i);
+}
 
-	while(str[counter])
-		counter++;
-
-	return(counter);
+int main(void)
+{
+    char *str;
+    str = "hello";
+    printf("%i\n", ft_strlen(str));
 }

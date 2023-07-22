@@ -13,23 +13,27 @@ Your function must be declared as follows:
 void	ft_putstr(char *str);*/
 
 #include <unistd.h>
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
 void	ft_putstr(char *str)
 {
-	int i;
+	int i = 0;
 
-	i = 0;
 	while(str[i])
 	{
-		write(1, &str[i], 1);
-		i++;
+		ft_putchar(str[i]);
+		i++; 
 	}
 }
 
 int main(void)
 {
 	char *str;
-
-	str = "hello";
+	str = "helo";
 	ft_putstr(str);
 	return(0);
 }
