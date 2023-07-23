@@ -64,12 +64,12 @@ void ft_putchar(char c)
 
 void ft_putnumb(long int numb)
 {
-    if(numb < 0)
+    if (numb < 0)
     {
         ft_putchar('-');
-        numb = numb * -1; 
+        numb = -numb;
     }
-    else if (numb >= 0 && numb <= 9)
+    if (numb >= 0 && numb <= 9)
         ft_putchar(numb + '0');
     else if (numb > 9)
     {
@@ -80,30 +80,34 @@ void ft_putnumb(long int numb)
 
 int main(int argc, char **argv)
 {
-    int i;
-    int numb1;
-    int numb2;
-
-    i = 0;
-    numb1 = ft_atoi(argv[1]);
-    numb2 = ft_atoi(argv[3]);
-    if(argc == 4)
+    if (argc == 4)
     {
-        while(argv[1][i])
+        int numb1 = ft_atoi(argv[1]);
+        int numb2 = ft_atoi(argv[3]);
+        char operator = argv[2][0];
+
+        if (operator == '+')
+            ft_putnumb(numb1 + numb2);
+        else if (operator == '-')
+            ft_putnumb(numb1 - numb2);
+        else if (operator == '*')
+            ft_putnumb(numb1 * numb2);
+        else if (operator == '/')
         {
-            if(argv[2][i] == '+')
-                ft_putnumb(numb1 + numb2);
-            else if(argv[2][i] == '*')
-                ft_putnumb(numb1 * numb2);
-            else if(argv[2][i] == '-')
-                ft_putnumb(numb1 - numb2);
-            else if(argv[2][i] == '/')
+            if (numb2 != 0)
                 ft_putnumb(numb1 / numb2);
-            else if(argv[2][i] == '%')
+            else
+                write(1, "Error: Division by zero\n", 24);
+        }
+        else if (operator == '%')
+        {
+            if (numb2 != 0)
                 ft_putnumb(numb1 % numb2);
-            i++;   
+            else
+                write(1, "Error: Modulo by zero\n", 22);
         }
     }
+
     ft_putchar('\n');
-    return(0);
+    return 0;
 }

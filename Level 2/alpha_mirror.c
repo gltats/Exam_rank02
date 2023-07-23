@@ -36,10 +36,8 @@ void ft_putchar(char c)
 int main(int argc, char **argv)
 {
     int i;
-    int alphabetical_i;
 
     i = 0;
-    alphabetical_i = 0;
     if(argc == 2)
     {
         while(argv[1][i])

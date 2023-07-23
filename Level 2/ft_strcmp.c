@@ -21,15 +21,15 @@ int ft_strcmp(char *s1, char *s2)
     return(s1[i] - s2[i]);
 }
 
-// int main(int argc, char **argv)
-// {
-//     int result;
-//     if(argc == 3)
-//     {
-//         result = ft_strcmp(argv[1], argv[2]);
-//         if (result == 0) printf("They are equal\n");
-//         if (result > 0) printf("First(%s) string is not greater than second(%s)\n", argv[1], argv[2]);
-//         if (result < 0) printf("First(%s) string is greater than secont(%s)\n", argv[1], argv[2]);
-//     }
-//     return 0;
-// }
+int main(int argc, char **argv)
+{
+    int result;
+    if(argc == 3)
+    {
+        result = ft_strcmp(argv[1], argv[2]);
+        if (result == 0) printf("They are equal\n");
+        if (result > 0) printf("First(%s) string is not greater than second(%s)\n", argv[1], argv[2]);
+        if (result < 0) printf("First(%s) string is greater than secont(%s)\n", argv[1], argv[2]);
+    }
+    return 0;
+}
