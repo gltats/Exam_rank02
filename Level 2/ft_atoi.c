@@ -13,11 +13,13 @@ Your function must be declared as follows:
 
 int	ft_atoi(const char *str);*/
 
+#include <stdio.h>
+
 int ft_atoi(const char *str)
 {
     int i = 0;
-    int sign = 0;
-    int result = 1;
+    int sign = 1;
+    int result = 0;
 
     while(str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
         i++;
@@ -34,5 +36,14 @@ int ft_atoi(const char *str)
         result = result + str[i] - '0';
         i++;
     }
-    return( sign * result);
+    return(sign * result);
+}
+
+int main(void)
+{
+	const char* testString="42"; // should print "42"
+
+	printf("this is my atoi result:\n");
+	printf("%d\n", ft_atoi(testString));
+	return(0);
 }
