@@ -27,3 +27,41 @@
 //    but... thiS iS noT thaT compleX$
 //      okay, thiS iS thE lasT 1239809147801 buT noT    thE leasT    T$
 // $>
+
+#include <unistd.h>
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void rstr_capitalizer(char *str) 
+{
+    int i = 0;
+
+    while (str[i])
+    {
+        if (str[i] >= 'A' && str[i] <= 'Z')
+            str[i] += 32;
+        if ((str[i] >= 'a' && str[i] <= 'z') && (str[i + 1] == ' ' || str[i + 1] == '\t' || str[i + 1] == '\0'))
+            str[i] -= 32;
+        ft_putchar(str[i++]);
+    }
+}
+
+int main(int argc, char *argv[]) 
+{
+    if (argc != 1) 
+	{
+		int i = 1;
+		while(i < argc)
+		{
+			rstr_capitalizer(argv[i]);
+        	ft_putchar('\n');
+			i++;
+		}
+	}
+	else
+		ft_putchar('\n');
+    return 0;
+}

@@ -36,3 +36,68 @@
 // $>./tab_mult | cat -e
 // $
 // $>
+
+#include <unistd.h>
+
+void ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void	ft_putstr(char *str)
+{
+	int i = 0;
+
+	while(str[i])
+	{
+		ft_putchar(str[i]);
+		i++; 
+	}
+}
+
+int ft_putnumb(int n)
+{
+	if (n > 0 && n <= 9)
+		ft_putchar(n + '0');
+	if (n > 9)
+	{
+		ft_putnumb(n / 10);
+		ft_putnumb(n % 10);
+	}
+	return(n);
+}
+
+void tab_mult(int num)
+{
+    int i = 1;
+
+    while (i <= 9)
+    {
+        ft_putnumb(i);
+        ft_putstr(" x ");
+        ft_putnumb(num);
+		ft_putstr(" = ");
+        ft_putnumb(i * num);
+        ft_putchar('\n');
+        i++;
+    }
+}
+
+int main(int argc, char *argv[])
+{
+    if (argc == 2)
+    {
+        int num = 0;
+        int i = 0;
+
+        while (argv[1][i])
+        {
+            num = num * 10 + (argv[1][i] - '0');
+            i++;
+        }
+        tab_mult(num);
+    }
+	else
+    	ft_putchar('\n');
+    return 0;
+}

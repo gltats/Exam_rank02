@@ -24,3 +24,34 @@
 // $>./hidenp | cat -e
 // $
 // $>
+
+#include <unistd.h>
+
+int is_hidden(const char *s1, const char *s2) 
+{
+    while (*s1)
+	{
+        while (*s2 && *s2 != *s1)
+            s2++;
+        if (*s2 != *s1)
+            return 0;
+        s1++;
+    }
+    return 1;
+}
+
+int main(int argc, char *argv[]) 
+{
+    if (argc != 3) 
+	{
+        write(1, "\n", 1);
+        return 0;
+    }
+
+    if (is_hidden(argv[1], argv[2]))
+        write(1, "1\n", 2);
+    else
+        write(1, "0\n", 2);
+
+    return 0;
+}

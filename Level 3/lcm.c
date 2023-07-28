@@ -26,3 +26,30 @@
 // Your function must be prototyped as follows:
 
 //   unsigned int    lcm(unsigned int a, unsigned int b);
+#include <stdio.h>
+
+unsigned int gcd(unsigned int a, unsigned int b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
+unsigned int lcm(unsigned int a, unsigned int b) 
+{
+    if (a == 0 || b == 0)
+        return 0;
+    unsigned int hcf = gcd(a, b);
+    return (a / hcf) * b;
+}
+
+int main(void)
+{
+    unsigned int num1 = 12;
+    unsigned int num2 = 18;
+
+    unsigned int result = lcm(num1, num2);
+    printf("LCM(%u, %u) = %u\n", num1, num2, result);
+
+    return 0;
+}
