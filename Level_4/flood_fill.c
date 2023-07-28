@@ -130,6 +130,7 @@ char** make_area(char** zone, t_point size)
 	char** new;
 
 	new = malloc(sizeof(char*) * size.y);
+	int i = 0;
 	for (int i = 0; i < size.y; ++i)
 	{
 		new[i] = malloc(size.x + 1);
