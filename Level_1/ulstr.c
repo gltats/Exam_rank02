@@ -20,3 +20,31 @@ $>./ulstr "3:21 Ba  tOut  moUn ki Ka di KE m'en Ka fe fot" | cat -e
 3:21 bA  ToUT  MOuN KI kA DI ke M'EN kA FE FOT$
 $>./ulstr | cat -e
 $*/
+
+#include <unistd.h>
+
+void ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+int main(int argc, char **argv)
+{
+	int i = 0;
+
+	if(argc == 2)
+	{
+		while (argv[1][i])
+		{
+			if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
+				ft_putchar(argv[1][i] - 32);
+			else if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+				ft_putchar(argv[1][i] + 32);
+			else
+				ft_putchar(argv[1][i]);
+			i++;
+		}
+	}
+	ft_putchar('\n');
+	return(0);
+}
