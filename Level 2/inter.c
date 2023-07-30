@@ -24,32 +24,51 @@
 
 #include <unistd.h>
 
-int charExists(char *str, char c) 
+void ft_putchar(char c)
 {
-    while (*str) 
-	{
-        if (*str == c)
+	write(1, &c, 1);
+}
+
+int charExists(char *str, char c)
+{
+    int i = 0;
+    while (str[i])
+    {
+        if (str[i] == c)
             return 1;
-        str++;
+        i++;
     }
     return 0;
 }
 
-int main(int argc, char *argv[]) 
+// Function to check if a character is duplicated in a string
+int isDuplicate(char *str, char c, int pos)
 {
-    if (argc == 3) {
-        char printed[256] = {0}; // Initialize a boolean array to keep track of printed characters
-        char *str1 = argv[1];
-        char *str2 = argv[2];
-
-        while (*str1) {
-            if (charExists(str2, *str1) && !printed[(unsigned char)*str1]) {
-                write(1, str1, 1);
-                printed[(unsigned char)*str1] = 1; // Mark the character as printed
-            }
-            str1++;
-        }
+    int i = 0;
+    while (i < pos)
+    {
+        if (str[i] == c)
+            return 1;
+        i++;
     }
-    write(1, "\n", 1);
+    return 0;
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 3)
+    {
+		int i = 0;
+		while (argv[1][i])
+		{
+			char current_char = argv[1][i];
+			// Check if the character exists in both strings and is not a duplicate
+			if (charExists(argv[2], current_char) && !isDuplicate(argv[1], current_char, i))
+				ft_putchar(current_char);
+			i++;
+		}
+
+    }
+   ft_putchar('\n');
     return 0;
 }
