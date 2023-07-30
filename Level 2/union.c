@@ -43,27 +43,27 @@ int main(int argc, char *argv[])
 {
     if (argc == 3)
 	{
-        char printed[256] = {0}; // Initialize a boolean array to keep track of printed characters
-        char *str1 = argv[1];
-        char *str2 = argv[2];
+			char printed[256] = {0}; // Initialize a boolean array to keep track of printed characters
+			char *str1 = argv[1];
+			char *str2 = argv[2];
 
-        while (*str1) {
-            if (!printed[(unsigned char)*str1]) 
-			{
-                write(1, str1, 1);
-                printed[(unsigned char)*str1] = 1; // Mark the character as printed
-            }
-            str1++;
-        }
+			while (*str1) {
+				if (!printed[(unsigned char)*str1]) 
+				{
+					write(1, str1, 1);
+					printed[(unsigned char)*str1] = 1; // Mark the character as printed
+				}
+				str1++;
+			}
 
-        while (*str2) {
-            if (!charExists(argv[1], *str2) && !printed[(unsigned char)*str2]) 
-			{
-                write(1, str2, 1);
-                printed[(unsigned char)*str2] = 1; // Mark the character as printed
-            }
-            str2++;
-        }
+			while (*str2) {
+				if (!charExists(argv[1], *str2) && !printed[(unsigned char)*str2]) 
+				{
+					write(1, str2, 1);
+					printed[(unsigned char)*str2] = 1; // Mark the character as printed
+				}
+				str2++;
+			}
     }
     write(1, "\n", 1);
     return 0;
