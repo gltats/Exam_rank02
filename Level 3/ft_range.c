@@ -23,25 +23,38 @@
 
 int *ft_range(int start, int end)
 {
-    int size = (end >= start) ? (end - start + 1) : (start - end + 1);
-    int *arr = (int *)malloc(size * sizeof(int));
-
-    if (arr == NULL)
-        return NULL;
-
     int i = 0;
-    while (i < size)
-    {
-        arr[i] = (start <= end) ? (start + i) : (start - i);
-		i++;
+    int len;
+
+    // Calculate the length of the range without using abs()
+    if (start < end)
+        len = end - start + 1;
+    else
+        len = start - end + 1;
+
+    int *res = (int *)malloc(sizeof(int) * len);
+    if (res == NULL) {
+        return NULL; // Handle memory allocation failure
     }
 
-    return arr;
+    while (i < len)
+    {
+        res[i] = start;
+        if (start < end)
+        {
+            start++;
+        }
+        else
+        {
+            start--;
+        }
+        i++;
+    }
+    
+    return res;
 }
-
 int main(void)
 {
-	// Test cases from examples in comments above...
 	int start = 0, end = -1;
     int *array = ft_range(start, end);
     if (array)
@@ -61,27 +74,4 @@ int main(void)
     {
         printf("Invalid range or memory allocation failed for Array.\n");
     }
-
-	// Another test case.
-	int start2 = 5, end2 = 2;
-    int *array2 = ft_range(start2, end2);
-    if (array2)
-    {
-        printf("Array2: ");
-        int i = 0;
-        while (i < abs(end2 - start2) + 1)
-        {
-            printf("%d ", array2[i]);
-            i++;
-        }
-        printf("\n");
-
-        free(array2);
-    }
-    else
-    {
-        printf("Invalid range or memory allocation failed for Array2.\n");
-    }
-
-    return 0;
 }

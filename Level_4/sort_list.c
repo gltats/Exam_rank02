@@ -30,52 +30,55 @@
 // {
 // 	return (a <= b);
 // }
-#include <stdio.h> 
 
-typedef struct s_list t_list;
 
-struct s_list
-{
-	int     data;
-	t_list  *next;
-};
+//starts here:
+// #include <stdio.h> 
 
-#include <stdlib.h>
-// Function to create a new node
-t_list *newNode(int data) {
-    t_list *newNode = (t_list *)malloc(sizeof(t_list));
-    newNode->data = data;
-    newNode->next = NULL;
-    return newNode;
-}
+// typedef struct s_list t_list;
 
-// Function to add a new node at the end of the list
-void append(t_list **headRef, int data) {
-    t_list *new_node = newNode(data);
-    if (*headRef == NULL) {
-        *headRef = new_node;
-        return;
-    }
-    t_list *last = *headRef;
-    while (last->next != NULL)
-        last = last->next;
-    last->next = new_node;
-}
+// struct s_list
+// {
+// 	int     data;
+// 	t_list  *next;
+// };
 
-// Function to print the linked list
-void printList(t_list *head) {
-    t_list *temp = head;
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->next;
-    }
-    printf("\n");
-}
+// #include <stdlib.h>
+// // Function to create a new node
+// t_list *newNode(int data) {
+//     t_list *newNode = (t_list *)malloc(sizeof(t_list));
+//     newNode->data = data;
+//     newNode->next = NULL;
+//     return newNode;
+// }
 
-// Function to compare two integers in ascending order
-int ascending(int a, int b) {
-    return (a <= b);
-}
+// // Function to add a new node at the end of the list
+// void append(t_list **headRef, int data) {
+//     t_list *new_node = newNode(data);
+//     if (*headRef == NULL) {
+//         *headRef = new_node;
+//         return;
+//     }
+//     t_list *last = *headRef;
+//     while (last->next != NULL)
+//         last = last->next;
+//     last->next = new_node;
+// }
+
+// // Function to print the linked list
+// void printList(t_list *head) {
+//     t_list *temp = head;
+//     while (temp != NULL) {
+//         printf("%d ", temp->data);
+//         temp = temp->next;
+//     }
+//     printf("\n");
+// }
+
+// // Function to compare two integers in ascending order
+// int ascending(int a, int b) {
+//     return (a <= b);
+// }
 
 
 t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
@@ -100,31 +103,31 @@ t_list	*sort_list(t_list *lst, int (*cmp)(int, int))
 	return (lst);
 }
 
-int main() {
-    // Create the linked list: 5 -> 1 -> 8 -> 3 -> 2
-    t_list *head = NULL;
-    append(&head, 5);
-    append(&head, 1);
-    append(&head, 8);
-    append(&head, 3);
-    append(&head, 2);
+// int main() {
+//     // Create the linked list: 5 -> 1 -> 8 -> 3 -> 2
+//     t_list *head = NULL;
+//     append(&head, 5);
+//     append(&head, 1);
+//     append(&head, 8);
+//     append(&head, 3);
+//     append(&head, 2);
 
-    printf("Original list: ");
-    printList(head);
+//     printf("Original list: ");
+//     printList(head);
 
-    // Sort the linked list in ascending order
-    head = sort_list(head, ascending);
+//     // Sort the linked list in ascending order
+//     head = sort_list(head, ascending);
 
-    printf("Sorted list: ");
-    printList(head);
+//     printf("Sorted list: ");
+//     printList(head);
 
-    // Free the memory used by the linked list
-    t_list *temp;
-    while (head != NULL) {
-        temp = head;
-        head = head->next;
-        free(temp);
-    }
+//     // Free the memory used by the linked list
+//     t_list *temp;
+//     while (head != NULL) {
+//         temp = head;
+//         head = head->next;
+//         free(temp);
+//     }
 
-    return 0;
-}
+//     return 0;
+// }

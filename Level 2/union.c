@@ -28,43 +28,60 @@
 
 #include <unistd.h>
 
-int charExists(char *str, char c) 
+void ft_putchar(char c)
 {
-    while (*str) 
-	{
-        if (*str == c)
-            return 1;
-        str++;
-    }
-    return 0;
+	write(1, &c, 1);
 }
 
-int main(int argc, char *argv[]) 
+int charExists(char c, char *str)
 {
-    if (argc == 3)
+	int i = 0;
+	while(str[i])
 	{
-			char printed[256] = {0}; // Initialize a boolean array to keep track of printed characters
-			char *str1 = argv[1];
-			char *str2 = argv[2];
+		if(str[i] == c)
+		{
+			return(1);
+		}
+		i++;
+	}
+	return(0);
+}
 
-			while (*str1) {
-				if (!printed[(unsigned char)*str1]) 
-				{
-					write(1, str1, 1);
-					printed[(unsigned char)*str1] = 1; // Mark the character as printed
-				}
-				str1++;
-			}
+int isDuplicated(char c, char *str, int pos)
+{
+	int i = 0;
+	while(str[i] && i < pos)
+	{
+		if(str[i] == c)
+		{
+			return(1);
+		}
+		i++;
+	}
+	return(0);
+}
 
-			while (*str2) {
-				if (!charExists(argv[1], *str2) && !printed[(unsigned char)*str2]) 
-				{
-					write(1, str2, 1);
-					printed[(unsigned char)*str2] = 1; // Mark the character as printed
-				}
-				str2++;
-			}
-    }
-    write(1, "\n", 1);
-    return 0;
+int main(int argc, char **argv)
+{
+	if(argc == 3)
+	{
+        int i = 0;
+        int j = 0;
+        while (argv[1][i])
+        {
+            if (!isDuplicated(argv[1][i], argv[1], i))
+                ft_putchar(argv[1][i]);
+            i++;
+        }
+        while (argv[2][j])
+        {
+            if (!charExists(argv[2][j], argv[1]) && !isDuplicated(argv[2][j], argv[2], j))
+                ft_putchar(argv[2][j]);
+            j++;
+        }
+
+	}
+	else
+		ft_putchar('\n')\
+	return(0);
 }

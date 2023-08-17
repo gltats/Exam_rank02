@@ -12,48 +12,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int	ft_count(int n)
+char *ft_itoa(int nbr) 
 {
-	int	i;
-
-	i = 0;
-	if (n <= 0)
-		i = 1;
-	while (n != 0)
+	if(nbr == -2147483648)
+		return("-2147483648\0");
+	int n = nbr;
+	int len = 0;
+	if (nbr <= 0)
+	{
+		len++;
+    	}
+	while (n) 
 	{
 		n /= 10;
-		++i;
+		len++;
 	}
-	return (i);
-}
-
-char	*ft_itoa(int n)
-{
-	char	*str;
-	int		len;
-
-	len = ft_count(n);
-	str = malloc(len + 1);
-	if (!str)
-		return (0);
-	if (n == 0)
-		str[0] = '0';
-	if (n < 0)
+	char *result = (char *)malloc(sizeof(char) * (len + 1));
+	if (result == NULL) 
+		return NULL;
+	result[len] = '\0';
+	if (nbr == 0)
 	{
-		str[0] = '-';
-		if (n == -2147483648)
-		{
-			str[--len] = '8';
-			n /= 10;
-		}
-		n = -n;
+		result[0] = '0';
+		return(result);
 	}
-	while (len-- && n != 0)
+	if (nbr < 0) 
 	{
-		str[len] = (n % 10) + '0';
-		n /= 10;
+		result[0] = '-';
+		nbr = -nbr;
 	}
-	return (str);
+	while (nbr) 
+	{
+		result[--len] = nbr % 10 + '0';
+		nbr /= 10;
+	}
+	return result;
 }
 
 int main(void)

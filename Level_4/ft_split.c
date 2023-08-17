@@ -23,10 +23,10 @@ static int	count_words(char *str)
 	while (str[i])
 	{
 		// Skip leading delimiters
-		while (str[i] && (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'))
+		while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')
 			i++;
 		// If we encounter a non-delimiter character, it's the beginning of a word
-		if (str[i] && str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
+		if (str[i] != ' ' && str[i] != '\t' && str[i] != '\n')
 		{
 			count++;
 			// Skip the word by advancing to the next delimiter

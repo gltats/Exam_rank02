@@ -26,49 +26,31 @@ int ft_putchar(char c)
 	return write(1, &c, 1);
 }
 
-int	ft_print_hex(unsigned int nb, char l)
+int	ft_atoi(char *str)
 {
-	int	len;
+	int n = 0;
 
-	len = 0;
-	if (nb < 10)
-		len += ft_putchar(nb + '0');
-	else if (nb < 16)
+	while (*str != '\0')
 	{
-		if (l == 'x')
-			len += ft_putchar(nb + 'a' - 10);
-		else if (l == 'X')
-			len += ft_putchar(nb + 'A' - 10);
+		n = n * 10;
+		n = n + *str - '0';
+		++str;
 	}
-	else
-	{
-			len += ft_print_hex(nb / 16, l);
-			len += ft_print_hex(nb % 16, l);
-	}
-	return (len);
+	return (n);
 }
 
-int main(int argc, char *argv[])
+void	print_hex(int n)
 {
-    if (argc != 2) {
-        ft_putchar('\n');
-        return 0;
-    }
-    unsigned int num = 0;
-    // Convert input string to an unsigned integer
-	int i = 0;
-    while (argv[1][i] != '\0')
-	{
-        if (argv[1][i] >= '0' && argv[1][i] <= '9')
-            num = num * 10 + (argv[1][i] - '0');
-        else {
-            ft_putchar('\n');
-            return 0;
-        }
-		i++;
-    }
-    // Call the function to convert and print the hexadecimal representation
-    ft_print_hex(num, 'x');
-    ft_putchar('\n');
-    return 0;
+	char hex_digits[] = "0123456789abcdef";
+
+	if (n >= 16)
+		print_hex(n / 16);
+	ft_putchar(hex_digits[n % 16]);
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+		print_hex(ft_atoi(argv[1]));
+	ft_putchar('\n');
 }
